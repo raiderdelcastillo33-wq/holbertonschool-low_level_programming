@@ -30,6 +30,15 @@ int main(void)
 			result = a + b;
 			printf("Result: %d\n", result);
 		}
+		if (choice == 2)
+		{
+			printf("A: ");
+			scanf("%d", &a);
+			printf("B: ");
+			scanf("%d", &b);
+			result = a - b;
+			printf("Result: %d\n", result);
+		}
 	} while (choice != 0);
 
 	printf("Bye!\n");
