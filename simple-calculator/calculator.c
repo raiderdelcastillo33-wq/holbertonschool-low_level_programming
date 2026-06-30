@@ -18,6 +18,8 @@ int main(void)
 		printf("0) Quit\n");
 		printf("Choice: ");
 		scanf("%d", &choice);
+		if (choice < 0 || choice > 4)
+			printf("Invalid choice\n");
 	} while (choice != 0);
 
 	printf("Bye!\n");
