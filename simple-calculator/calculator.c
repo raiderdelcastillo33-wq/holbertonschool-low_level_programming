@@ -9,8 +9,8 @@ int main(void)
 {
 	int choice;
 
+	printf("Simple Calculator\n");
 	do {
-		printf("Simple Calculator\n");
 		printf("1) Add\n");
 		printf("2) Subtract\n");
 		printf("3) Multiply\n");
