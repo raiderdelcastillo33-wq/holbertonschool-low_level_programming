@@ -24,6 +24,7 @@ char *leet(char *);
 char *rot13(char *);
 void print_number(int n);
 char *infinite_add(char *n1, char *n2, char *r, int size_r);
+void print_buffer(char *b, int size);
 char *_memcpy(char *dest, char *src, unsigned int n);
 int _atoi(char *s);
 char *_strchr(char *s, char c);
