@@ -1,17 +1,12 @@
 #include <stdlib.h>
-#include "main.h"
+#include <unistd.h>
 
 /**
  * print_error - Prints Error and exits with status 98
  */
 void print_error(void)
 {
-	_putchar('E');
-	_putchar('r');
-	_putchar('r');
-	_putchar('o');
-	_putchar('r');
-	_putchar('\n');
+	write(1, "Error\n", 6);
 	exit(98);
 }
 
@@ -56,14 +51,14 @@ void print_result(int *result, int size)
 		if (result[i] != 0)
 			started = 1;
 		if (started)
-			_putchar(result[i] + '0');
+			write(1, &"0123456789"[result[i]], 1);
 		i++;
 	}
 
 	if (!started)
-		_putchar('0');
+		write(1, "0", 1);
 
-	_putchar('\n');
+	write(1, "\n", 1);
 }
 
 /**
@@ -137,6 +132,5 @@ int main(int argc, char *argv[])
 
 	free(result);
 
-	exit(0);
+	return (0);
 }
-
