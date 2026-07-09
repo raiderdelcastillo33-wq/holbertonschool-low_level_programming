@@ -2,9 +2,11 @@
 #include "main.h"
 
 /**
- * print_error - Prints Error and exits with status 98
+ * print_error - Prints Error
+ *
+ * Return: 98
  */
-void print_error(void)
+int print_error(void)
 {
 	_putchar('E');
 	_putchar('r');
@@ -12,7 +14,8 @@ void print_error(void)
 	_putchar('o');
 	_putchar('r');
 	_putchar('\n');
-	exit(98);
+
+	return (98);
 }
 
 /**
@@ -121,12 +124,12 @@ int main(int argc, char *argv[])
 	int i;
 
 	if (argc != 3)
-		print_error();
+		return (print_error());
 
 	len1 = digit_length(argv[1]);
 	len2 = digit_length(argv[2]);
 	if (len1 == 0 || len2 == 0)
-		print_error();
+		return (print_error());
 
 	if (len1 < 0 || len2 < 0)
 	{
@@ -138,7 +141,7 @@ int main(int argc, char *argv[])
 	size = len1 + len2;
 	result = malloc(sizeof(int) * size);
 	if (result == NULL)
-		print_error();
+		return (print_error());
 
 	i = 0;
 	while (i < size)
