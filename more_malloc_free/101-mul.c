@@ -19,22 +19,29 @@ void print_error(void)
  * digit_length - Checks if a string contains only digits and gets length
  * @s: String to check
  *
- * Return: Length if valid, 0 otherwise
+ * Return: Length if valid, negative length if zero, 0 otherwise
  */
 int digit_length(char *s)
 {
 	int i;
+	int zero;
 
 	if (s == NULL || s[0] == '\0')
 		return (0);
 
 	i = 0;
+	zero = 1;
 	while (s[i])
 	{
 		if (s[i] < '0' || s[i] > '9')
 			return (0);
+		if (s[i] != '0')
+			zero = 0;
 		i++;
 	}
+
+	if (zero)
+		return (-i);
 
 	return (i);
 }
@@ -97,6 +104,7 @@ void multiply(char *num1, char *num2, int *result, int len1, int len2)
 	}
 }
 
+
 /**
  * main - Multiplies two positive numbers
  * @argc: Argument count
@@ -119,6 +127,13 @@ int main(int argc, char *argv[])
 	len2 = digit_length(argv[2]);
 	if (len1 == 0 || len2 == 0)
 		print_error();
+
+	if (len1 < 0 || len2 < 0)
+	{
+		_putchar('0');
+		_putchar('\n');
+		return (0);
+	}
 
 	size = len1 + len2;
 	result = malloc(sizeof(int) * size);
